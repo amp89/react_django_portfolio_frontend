@@ -2,7 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import App1 from './App1.js';
+
+
+import Nav from './components/nav';
 import * as serviceWorker from './serviceWorker';
 
 import {Provider} from "react-redux";
@@ -19,10 +21,10 @@ ReactDOM.render(
 
         <BrowserRouter>
             <div>
-                {/* <Nav /> */}
+                <Nav />
                 <Switch>
                     {/* <Route exact path="/default" component={App} /> */}
-                    <Route exact path="/new" component={App1} />
+
                     <Route exact path="/" component={App} />
                 </Switch>
             </div>
