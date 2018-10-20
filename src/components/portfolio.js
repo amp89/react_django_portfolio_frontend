@@ -18,7 +18,17 @@ class Portfolio extends Component{
                 // <div key={p.title}> {/* hacky stupid solution for key, don't actually do this in real things.*/}
                 //     STUFF:{p.short_description}
                 // </div>
-                <div>{p.id}</div>
+                <div key={p.id}>
+                    Title <div>{p.title}</div><div>{p.id}</div>
+                    Code <div>{p.code_link}</div>
+                    Blog Post <div>{p.blog_link}</div>
+                    Created <div>{p.datetime}</div>
+                    Image <div>{p.image}</div>
+                    Link <div>{p.link}</div>
+                    {/* <div>{p.short_description}</div> */}
+                    Description <div>{p.long_description}</div>
+                </div>
+
             )
         })
     }
@@ -26,7 +36,7 @@ class Portfolio extends Component{
     render(){
         return(
             <div>
-                I AM A PORTFOLIO
+                Portfolio
                 {this.renderProjects()}
             </div>
         )

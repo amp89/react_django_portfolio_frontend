@@ -32,8 +32,7 @@ class Auth extends Component{
         
             if(this.props.loggedIn == true){
                 return <div>
-                    
-                    {this.logout()}
+                    {this.renderRedirect()}
                     {this.props.loggedIn} | {this.props.at} | {this.props.username} | {this.props.firstname} | {this.props.lastname}
                 </div>
             }else{
@@ -43,6 +42,7 @@ class Auth extends Component{
                     <LoginForm /> <br /> {this.props.loggedIn} {this.props.loggedIn} | {this.props.at} | {this.props.username} | {this.props.firstname} | {this.props.lastname}
                     Or Sign Up!
                     <SignupForm />
+
                     <ErrorList />
                     </div>
             }

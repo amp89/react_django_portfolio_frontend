@@ -5,9 +5,9 @@ export const GET_PROJECTS = "GET_PROJECTS";
 export const POST_LOGIN = "POST_LOGIN";
 export const POST_SIGNUP = "POST_SIGNUP";
 export const GET_LOGOUT = "GET_LOGOUT";
-
-
-
+export const GET_CONTACT = "GET_CONTACT";
+export const GET_SITEINFO = "GET_SITEINFO";
+export const POST_MESSAGE = "POST_MESSAGE";
 
 
 export const getProjects = () => {
@@ -47,6 +47,30 @@ export const signUp = (data) => {
     let r = axios.post("http://localhost:8000/signup/",data)
     return {
         type:POST_SIGNUP,
+        payload: r
+    }
+}
+
+export const getContact = (data) => {
+    let r = axios.get("http://localhost:8000/connect/")
+    return {
+        type:GET_CONTACT,
+        payload: r
+    }
+}
+
+export const fetchSiteInfo = () => {
+    let r = axios.get("http://localhost:8000/info/")
+    return {
+        type: GET_SITEINFO,
+        payload: r
+    }
+}
+
+export const sendMessage = (values) => {
+    let r = axios.post("http://localhost:8000/message/", values)
+    return {
+        type: POST_MESSAGE,
         payload: r
     }
 }
