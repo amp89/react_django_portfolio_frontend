@@ -18,8 +18,8 @@ class Nav extends Component{
         if(this.props.loggedIn){
             return(
                 <div>
-                    <div>{this.props.siteInfo.site_title}</div>
-                    <div>{this.props.siteInfo.author}</div>
+                    <div><Link to="/">{this.props.siteInfo.site_title}</Link></div>
+                    <div>by <Link to="/">{this.props.siteInfo.site_author}</Link></div>
                     <Link to="/">Home</Link>
                     <Link to="/portfolio">Portfolio</Link>
                     <Link to="/connect">Connect</Link>
@@ -31,8 +31,8 @@ class Nav extends Component{
         }else{
             return(
                 <div>
-                    <div>{this.props.siteInfo.site_title}</div>
-                    by <div>{this.props.siteInfo.site_author}</div>
+                    <div><Link to="/">{this.props.siteInfo.site_title}</Link></div>
+                    <div>by <Link to="/">{this.props.siteInfo.site_author}</Link></div>
                     <Link to="/">Home</Link>
                     <Link to="/portfolio">Portfolio</Link>
                     <Link to="/connect">Connect</Link>
