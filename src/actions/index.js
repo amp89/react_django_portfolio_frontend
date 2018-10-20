@@ -1,39 +1,14 @@
 const axios = require("axios")
 
 export const GET_PROJECTS = "GET_PROJECTS";
-export const DELETE_THING = "DELETE_THING";
-export const FETCH_THINGS = "FETCH_THINGS";
+
+export const POST_LOGIN = "POST_LOGIN";
 
 function doaxios(){
 
 }
 
-// export function getProjects(callback){
-//     /*
-//     axios.get("http://localhost:8000/projects").then(
-//         (data) => {
-//             console.log("getting stuffs")
-//             return {
-//                 type:GET_PROJECTS,
-//                 payload:data
-//             }
-//         }
-//     )
-//     *///////////////////////////
-//     return function(dispatch){
-//         axios.get("http://localhost:8000/projects").then(
-//             (data) => {
-//                 console.log("getting stuffs")
-//                 dispatch({
-//                     type:GET_PROJECTS,
-//                     payload:data
-//                 })
-//             }
-//         )
-//     }
 
-//     //execute callback (its the history.push("/") thing)
-// };
 
 export const getProjects = () => {
 
@@ -44,14 +19,16 @@ export const getProjects = () => {
             payload:projects
         }
         
-        // return (dispatch){
-        //     return fetch("http://localhost:8000/projects").then(
-        //         r => dispatch()
-        //     )
-        // }
+}
 
-
-
+export const postLogin = (values) => {
+    console.log("posting to login: ", values)
+    let userInfo = axios.post("http://localhost:8000/login/")
+    console.log("USER INFO PROMISE: ", userInfo);
+    return {
+        type:POST_LOGIN,
+        payload:userInfo
+    }
 }
 
 // export function fetchThings(){

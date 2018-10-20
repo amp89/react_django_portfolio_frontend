@@ -33,7 +33,6 @@ ReactDOM.render(
                     <Route exact path="/connect" component={Connect} />
                     <Route exact path="/portfolio" component={Portfolio} />
                     <Route exact path="/" component={Home} />
-
                 </Switch>
             </div>
         </BrowserRouter>
