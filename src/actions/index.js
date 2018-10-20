@@ -23,7 +23,7 @@ export const getProjects = () => {
 
 export const postLogin = (values) => {
     console.log("posting to login: ", values)
-    let userInfo = axios.post("http://localhost:8000/login/")
+    let userInfo = axios.post("http://localhost:8000/login/", values)
     console.log("USER INFO PROMISE: ", userInfo);
     return {
         type:POST_LOGIN,
