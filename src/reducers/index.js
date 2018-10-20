@@ -1,12 +1,13 @@
 import {combineReducers} from "redux";
 import ReducerProject from "./ReducerProject"
-import ReducerLogin from "./ReducerLogin"
+import ReducerAuth from "./ReducerAuth"
+// import ReducerLogout from "./ReducerLogout"
 import {reducer as formReducer} from "redux-form";
 
 const rootReducer = combineReducers({
     // state: (state={}) => state,//default
     projects: ReducerProject,
-    login: ReducerLogin,
+    login: ReducerAuth,
     form: formReducer
     // form: formReducer,
 
