@@ -4,18 +4,18 @@ import {Field, reduxForm} from "redux-form";
 
 import {connect} from "react-redux";
 
-import {postLogin} from "../actions";
+import {signUp} from "../actions";
 import { Redirect } from 'react-router-dom'
 
-class LoginForm extends Component{
+class SignupForm extends Component{
     
     onSubmit(values){
         console.log("onsubmit: values: ", values)
-        this.props.postLogin(values);
+        this.props.signUp(values);
     }
 
     renderRedirect = (status) => {
-        console.log("redir checK: ", this.props.loggedIn)
+        console.log("redir checK: ", this.props.signUp)
         // console.log("redir checK: ", state.loggedIn)
         console.log("redir checK stat: ", status)
         if (this.props.loggedIn) {
@@ -30,10 +30,14 @@ class LoginForm extends Component{
         return (
             <div>
                 {this.renderRedirect(this.props.loggedIn)}
-                <h1>Login</h1>
+                <h1>Sign up</h1>
                 <form onSubmit={this.props.handleSubmit(this.onSubmit.bind(this))}>
-                    U: <Field component="input" label="usr" name="usr" />
-                    P: <Field component="input" type="password" label="pwd" name="pwd" />
+                    {/* U: <Field component="input" type="text" label="usr" name="usr" /> */}
+                    f: <Field component="input"  type="text" label="first" name="firstname" />
+                    l: <Field component="input"  type="text" label="lastname" name="lastname" />
+                    e: <Field component="input"  type="email" label="email" name="email" />
+                    P: <Field component="input"  type="password" label="pwd" name="pwd" />
+                    Repeat P: <Field component="input"  type="password" label="pwd2" name="pwd2" />
                     <button type="submit">Lets Go!</button>
                 </form>
             </div>
@@ -56,4 +60,4 @@ function mapStateToProps(state){
 
 // export default reduxForm({validate,form:"LoginForm"})(connect(null,{postLogin})(LoginForm));
 // export default reduxForm({form:"LoginForm"})(connect(null,{postLogin})(LoginForm));
-export default reduxForm({form:"LoginForm"})(connect(mapStateToProps,{postLogin})(LoginForm));
+export default reduxForm({validate,form:"LoginForm"})(connect(mapStateToProps,{signUp})(SignupForm));

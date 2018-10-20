@@ -3,6 +3,7 @@ const axios = require("axios")
 export const GET_PROJECTS = "GET_PROJECTS";
 
 export const POST_LOGIN = "POST_LOGIN";
+export const POST_SIGNUP = "POST_SIGNUP";
 export const GET_LOGOUT = "GET_LOGOUT";
 
 
@@ -39,6 +40,14 @@ export const getLogout = (atoken) => {
     return {
         type:GET_LOGOUT,
         payload:null
+    }
+}
+
+export const signUp = (data) => {
+    let r = axios.post("http://localhost:8000/signup/",data)
+    return {
+        type:POST_SIGNUP,
+        payload: r
     }
 }
 

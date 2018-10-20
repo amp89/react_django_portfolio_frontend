@@ -6,6 +6,8 @@ import {getLogout } from "../actions"
 import {connect} from "react-redux";
 
 import LoginForm from "./login"
+import SignupForm from "./signup"
+import ErrorList from "./errors"
 import { Redirect } from 'react-router-dom'
 
 class Auth extends Component{
@@ -39,7 +41,9 @@ class Auth extends Component{
                     Please Sign In
                     <div onClick={this.props.postLogin}>CLICK ME</div>
                     <LoginForm /> <br /> {this.props.loggedIn} {this.props.loggedIn} | {this.props.at} | {this.props.username} | {this.props.firstname} | {this.props.lastname}
-
+                    Or Sign Up!
+                    <SignupForm />
+                    <ErrorList />
                     </div>
             }
 
@@ -56,6 +60,7 @@ function mapStateToProps(state){
         username:state.login.username,
         firstname:state.login.firstname,
         lastname:state.login.lastname,
+        result:state.login.result,
     }
 }
 
