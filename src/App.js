@@ -11,14 +11,6 @@ class App extends Component {
           <p>
             <code>hi</code>
           </p>
-          <a
-            className="App-link"
-            href="/new"
-            // target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
         </header>
       </div>
     );
