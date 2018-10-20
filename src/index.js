@@ -14,16 +14,33 @@ import * as serviceWorker from './serviceWorker';
 
 import {Provider} from "react-redux";
 import {createStore, applyMiddleware} from "redux";
+
+import { persistStore, persistReducer } from 'redux-persist'
+import storage from 'redux-persist/lib/storage' // defaults to localStorage for web and AsyncStorage for react-native
+ 
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import promiseMiddleware from "redux-promise";
 import reducers from "./reducers"
+import { PersistGate } from 'redux-persist/integration/react'
+ 
+const persistConfig = {
+    key: 'root',
+    storage,
+  }
 
 
+const persistedReducer = persistReducer(persistConfig, reducers)
+// let store = createStore(persistedReducer)
 const createStoreWithMiddleware = applyMiddleware(promiseMiddleware)(createStore);
+let store = createStoreWithMiddleware(persistedReducer)
+let persistor = persistStore(store)
+
+
 
 ReactDOM.render(
     // <Provider store={createStoreWithMiddleware(reducers)}>
-    <Provider store={createStoreWithMiddleware(reducers)}>
+    <Provider store={store}>
+    <PersistGate loading={null} persistor={persistor}>
         <BrowserRouter>
             <div>
                 <Nav />
@@ -36,6 +53,7 @@ ReactDOM.render(
                 </Switch>
             </div>
         </BrowserRouter>
+        </PersistGate>
      </Provider>
     ,document.getElementById('root'));
 
