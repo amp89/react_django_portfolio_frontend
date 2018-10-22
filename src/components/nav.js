@@ -15,33 +15,36 @@ class Nav extends Component{
     }
 
     render(){
-        if(this.props.loggedIn){
+        // if(this.props.loggedIn){
             return(
-                <div>
-                    <div><Link to="/">{this.props.siteInfo.site_title}</Link></div>
-                    <div>by <Link to="/">{this.props.siteInfo.site_author}</Link></div>
-                    <Link to="/">Home</Link>
-                    <Link to="/portfolio">Portfolio</Link>
-                    <Link to="/connect">Connect</Link>
-                    {/* <Link to="/auth">Logout</Link> */}
-                    <button onClick={this.doLogout.bind(this)}>Logout</button>
-                    <hr />
-                </div>
+                // <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                //     <div  className="collapse navbar-collapse" id="navbarSupportedContent">
+                        
+                        <ul className="nav justify-content-center " style={{fontSize:"2em",marginBottom:20}}>
+                                {/* <li className="nav-item">
+                                    <Link to="/">{this.props.siteInfo.site_title}</Link>   
+                                </li> */}
+                                {/* <li> | </li> */}
+                                <li className="nav-item">
+                                    <Link to="/">Home</Link>
+                                </li>
+                                <li> | </li>
+                                <li className="nav-item">
+                                    <Link to="/portfolio">Portfolio</Link>
+                                </li>
+                                <li> | </li>
+                                <li className="nav-item">
+                                    <Link to="/connect">Connect</Link>
+                                </li>
+                                <li> | </li>
+                                <li className="nav-item">
+                                    {this.props.loggedIn === true ? <a href="#" onClick={this.doLogout.bind(this)}>Logout</a> : <Link to="/auth">Login</Link>}
+                                </li>
+                            </ul>
+                //     </div>
+
+                // </nav>
             )
-        }else{
-            return(
-                <div>
-                    <div><Link to="/">{this.props.siteInfo.site_title}</Link></div>
-                    <div>by <Link to="/">{this.props.siteInfo.site_author}</Link></div>
-                    <Link to="/">Home</Link>
-                    <Link to="/portfolio">Portfolio</Link>
-                    <Link to="/connect">Connect</Link>
-                    <Link to="/auth">Login</Link>
-                    
-                    <hr />
-                </div>
-            )
-        }
 
         
     }

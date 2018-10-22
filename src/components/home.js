@@ -6,13 +6,23 @@ import {connect} from "react-redux";
 class Home extends Component{
     render(){
         return(
-            <div>
-                <h1>Welcome to {this.props.siteInfo.site_title}, by {this.props.siteInfo.site_author}</h1>
+            <div className="container">
+                <h1 className="text-center " style={{marginTop:20}}>{this.props.siteInfo.site_title}</h1>
+                <div className="row d-flex align-items-center" style={{width:"80%", margin:"auto", marginTop:20}}>
+                    <div className="col-sm-4">
+                    <img src={this.props.siteInfo.photo_1_link} alt="400x400photo1" style={{width:"100%","border-radius": "50%"}}/>
+                    </div>
+                    
+                    <div className="col-sm-4 .d-sm-none .d-md-block 	.d-none .d-sm-block ">
+                    <img src={this.props.siteInfo.photo_2_link} alt="400x400photo2" style={{width:"100%","border-radius": "50%"}}/>
+                    </div>
+                    <div className="col-sm-4 .d-sm-none .d-md-block 	.d-none .d-sm-block">
+                    <img src={this.props.siteInfo.photo_3_link} alt="400x400photo3" style={{width:"100%","border-radius": "50%"}}/>
+                    </div>
+
+                </div>
                 
-                <img src={this.props.photo_1_link} alt="photo1"/>
-                <img src={this.props.photo_2_link} alt="photo2" />
-                <img src={this.props.photo_3_link} alt="photo3"/>
-                <div dangerouslySetInnerHTML={{__html: this.props.siteInfo.about}} />
+                <div dangerouslySetInnerHTML={{__html: this.props.siteInfo.about}}/>
             </div>
             
         )

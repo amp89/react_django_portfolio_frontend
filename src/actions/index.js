@@ -7,6 +7,7 @@ export const POST_SIGNUP = "POST_SIGNUP";
 export const GET_LOGOUT = "GET_LOGOUT";
 export const GET_CONTACT = "GET_CONTACT";
 export const GET_SITEINFO = "GET_SITEINFO";
+export const RESET_MESSAGE = "RESET_MESSAGE";
 export const POST_MESSAGE = "POST_MESSAGE";
 
 
@@ -51,7 +52,10 @@ export const signUp = (data) => {
     }
 }
 
-export const getContact = (data) => {
+export const getContact = (at) => {
+    //set this on something that loads w/ the initial page load
+    axios.defaults.headers.common['Authorization'] = `Token ${at}`;
+
     let r = axios.get("http://localhost:8000/connect/")
     return {
         type:GET_CONTACT,
@@ -72,6 +76,13 @@ export const sendMessage = (values) => {
     return {
         type: POST_MESSAGE,
         payload: r
+    }
+}
+
+export const resetMessage = (values) => {
+    return {
+        type: RESET_MESSAGE,
+        payload: null
     }
 }
 

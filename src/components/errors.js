@@ -14,7 +14,7 @@ class ErrorList extends Component{
                 // <div key={p.title}> {/* hacky stupid solution for key, don't actually do this in real things.*/}
                 //     STUFF:{p.short_description}
                 // </div>
-                <div>{p}</div>
+                <h3 className="text-center">{p}</h3>
             )
         })
     }

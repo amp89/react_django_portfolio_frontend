@@ -33,18 +33,17 @@ class Auth extends Component{
             if(this.props.loggedIn == true){
                 return <div>
                     {this.renderRedirect()}
-                    {this.props.loggedIn} | {this.props.at} | {this.props.username} | {this.props.firstname} | {this.props.lastname}
                 </div>
             }else{
-                return <div>
-                    Please Sign In
-                    <div onClick={this.props.postLogin}>CLICK ME</div>
-                    <LoginForm /> <br /> {this.props.loggedIn} {this.props.loggedIn} | {this.props.at} | {this.props.username} | {this.props.firstname} | {this.props.lastname}
-                    Or Sign Up!
+                return (
+                <div>
+                    
+                    <LoginForm />
+ 
                     <SignupForm />
 
                     <ErrorList />
-                    </div>
+                </div>)
             }
 
         

@@ -28,13 +28,41 @@ class LoginForm extends Component{
     
     render(){
         return (
-            <div>
+            <div className="text-center">
                 {this.renderRedirect(this.props.loggedIn)}
                 <h1>Login</h1>
-                <form onSubmit={this.props.handleSubmit(this.onSubmit.bind(this))}>
-                    U: <Field component="input" label="usr" name="usr" />
-                    P: <Field component="input" type="password" label="pwd" name="pwd" />
-                    <button type="submit">Lets Go!</button>
+                <form 
+                    onSubmit={this.props.handleSubmit(this.onSubmit.bind(this))}
+                    className="form-signin"
+                    >
+                    <div>
+                        <label 
+                            for="usr"
+                        >Email address:</label>
+                        <Field
+                            component="input"
+                            type="text"
+                            label="usr"
+                            name="usr"
+                            className="formcontrol"
+                            required
+                            autoFocus/>
+                    </div>
+                    <div>
+                        <label 
+                            for="pwd"
+                        >Password:</label>
+                        <Field
+                            component="input"
+                            type="password"
+                            label="pwd"
+                            name="pwd"
+                            className="formcontrol"
+                            required/>
+                        
+                    </div>
+                    <div><button className="btn btn-lg btn-primary" type="submit">Sign In</button></div>
+                    
                 </form>
             </div>
         )
