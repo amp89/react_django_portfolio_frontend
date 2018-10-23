@@ -13,20 +13,11 @@ import { Redirect } from 'react-router-dom'
 class Auth extends Component{
 
     renderRedirect = (status) => {
-        console.log("redir checK: ", this.props.loggedIn)
-        // console.log("redir checK: ", state.loggedIn)
-        console.log("redir checK stat: ", status)
         if (this.props.loggedIn) {
-            console.log("redir")
           return <Redirect to='/' />
-        }else{
-            console.log('no redir')
         }
       }
 
-    logout(){
-        console.log("no imp.")
-    }
 
     render(){
         
@@ -51,8 +42,7 @@ class Auth extends Component{
 }
 
 function mapStateToProps(state){
-    console.log("all state: ", state);
-    console.log("login state? ", state.login.loggedIn);
+
     return {
         loggedIn:state.login.loggedIn,
         at:state.login.at,
@@ -63,6 +53,4 @@ function mapStateToProps(state){
     }
 }
 
-
-// export default connect(mapStateToProps, {getProjects})(Portfolio)
 export default connect(mapStateToProps)(Auth)

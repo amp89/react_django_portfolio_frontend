@@ -30,7 +30,6 @@ const persistConfig = {
 
 
 const persistedReducer = persistReducer(persistConfig, reducers)
-// let store = createStore(persistedReducer)
 const createStoreWithMiddleware = applyMiddleware(promiseMiddleware)(createStore);
 let store = createStoreWithMiddleware(persistedReducer)
 let persistor = persistStore(store)
@@ -38,7 +37,7 @@ let persistor = persistStore(store)
 serviceWorker.unregister();
 
 ReactDOM.render(
-    // <Provider store={createStoreWithMiddleware(reducers)}>
+
     <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
         <BrowserRouter>
@@ -51,6 +50,7 @@ ReactDOM.render(
                     <Route exact path="/portfolio" component={Portfolio} />
                     <Route exact path="/" component={Home} />
                 </Switch>
+                
             </div>
         </BrowserRouter>
         </PersistGate>

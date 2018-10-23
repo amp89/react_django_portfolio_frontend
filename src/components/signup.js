@@ -11,19 +11,14 @@ import { Z_FIXED } from "zlib";
 class SignupForm extends Component{
     
     onSubmit(values){
-        console.log("onsubmit: values: ", values)
+
         this.props.signUp(values);
     }
 
     renderRedirect = (status) => {
-        console.log("redir checK: ", this.props.signUp)
-        // console.log("redir checK: ", state.loggedIn)
-        console.log("redir checK stat: ", status)
+
         if (this.props.loggedIn) {
-            console.log("redir")
           return <Redirect to='/' />
-        }else{
-            console.log('no redir')
         }
       }
     
@@ -88,12 +83,9 @@ function validate(values){
 }
 
 function mapStateToProps(state){
-    console.log("State of login: ", state.login.loggedIn)
     return {
         loggedIn:state.login.loggedIn,
     }
 }
 
-// export default reduxForm({validate,form:"LoginForm"})(connect(null,{postLogin})(LoginForm));
-// export default reduxForm({form:"LoginForm"})(connect(null,{postLogin})(LoginForm));
 export default reduxForm({validate,form:"LoginForm"})(connect(mapStateToProps,{signUp})(SignupForm));

@@ -14,7 +14,6 @@ export const POST_MESSAGE = "POST_MESSAGE";
 export const getProjects = () => {
 
         let projects = axios.get(`${config.api}/projects/`)
-        console.log("this is what axios returns: ", projects)
         return {
             type:GET_PROJECTS,
             payload:projects
@@ -23,9 +22,7 @@ export const getProjects = () => {
 }
 
 export const postLogin = (values) => {
-    console.log("posting to login: ", values)
     let userInfo = axios.post(`${config.api}/login/`, values)
-    console.log("USER INFO PROMISE: ", userInfo);
     return {
         type:POST_LOGIN,
         payload:userInfo
@@ -34,7 +31,6 @@ export const postLogin = (values) => {
 
 export const getLogout = (atoken) => {
     
-    console.log(`Loggint out with token ${atoken}`)
     let header = `Authorization: Token ${atoken}`
     // let r = axios.get("http://localhost:8000/logout/", {headers: {header}})
     let r = axios.get(`${config.api}/logout/`, {"Authorization": `Authorization: Token ${atoken}`})
@@ -85,12 +81,3 @@ export const resetMessage = (values) => {
         payload: null
     }
 }
-
-// export function fetchThings(){
-//     console.log("fetch action");
-//     return {
-        
-//         type:FETCH_THINGS,
-//         //no request or anything to put here since its pulling from local store
-//     }
-// }

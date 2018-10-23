@@ -7,7 +7,7 @@ import {connect} from "react-redux";
 class Portfolio extends Component{
 
     componentDidMount(){
-        console.log("mounted");
+
         this.props.getProjects();
     }
 
@@ -20,9 +20,7 @@ class Portfolio extends Component{
             _.map(this.props.projects, p => {
                 if(p.id != undefined){
                     return(
-                        // <div key={p.title}> {/* hacky stupid solution for key, don't actually do this in real things.*/}
-                        //     STUFF:{p.short_description}
-                        // </div>
+
                         
                         <div id={p.id} className="col-xs-12 col-sm-12 col-md-4" key={p.id}>
                             <div className="card">

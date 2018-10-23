@@ -14,9 +14,9 @@ export default function(state={
     }, action){
     switch(action.type){
         case GET_SITEINFO:
-            console.log("GET_SITE_INFO reducer: ", action.payload.data);
+
             let contact_state =  {...state, ...action.payload.data}
-            console.log(contact_state)
+
             // so it can have the token 
             // axios.defaults.headers.common['Authorization'] = `Token ${contact_state.at}`
             return contact_state

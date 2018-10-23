@@ -10,19 +10,15 @@ import { Redirect } from 'react-router-dom'
 class LoginForm extends Component{
     
     onSubmit(values){
-        console.log("onsubmit: values: ", values)
+
         this.props.postLogin(values);
     }
 
     renderRedirect = (status) => {
-        console.log("redir checK: ", this.props.loggedIn)
-        // console.log("redir checK: ", state.loggedIn)
-        console.log("redir checK stat: ", status)
+
         if (this.props.loggedIn) {
-            console.log("redir")
+ 
           return <Redirect to='/' />
-        }else{
-            console.log('no redir')
         }
       }
     
@@ -76,12 +72,9 @@ function validate(values){
 }
 
 function mapStateToProps(state){
-    console.log("State of login: ", state.login.loggedIn)
     return {
         loggedIn:state.login.loggedIn,
     }
 }
 
-// export default reduxForm({validate,form:"LoginForm"})(connect(null,{postLogin})(LoginForm));
-// export default reduxForm({form:"LoginForm"})(connect(null,{postLogin})(LoginForm));
 export default reduxForm({form:"LoginForm"})(connect(mapStateToProps,{postLogin})(LoginForm));
