@@ -18,7 +18,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && cp prod-server.js build/server.js && cd build && npm i -s express-session",
+    "build": "react-scripts build && cp prod-server.js build/server.js && cd build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
