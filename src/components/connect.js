@@ -49,7 +49,7 @@ class Connect extends Component{
                         Blog: <a target="_blank" href={this.props.contactInfo.blog}>{this.props.contactInfo.blog}</a>
                     </h4>
                     <h4>
-                        Email: <a  href={"mailto:" + this.props.contactInfo.email}>{this.props.contactInfo.email}</a>
+                        Email: {this.props.login.loggedIn ?  <a  href={"mailto:" + this.props.contactInfo.email}>{this.props.contactInfo.email}</a> : <Link to="/auth">Login to see</Link>}
                     </h4>
                     <h4>
                         Github: <a target="_blank"  href={this.props.contactInfo.github}>{this.props.contactInfo.github}</a>
@@ -58,7 +58,7 @@ class Connect extends Component{
                         Linkedin: <a target="_blank" href={this.props.contactInfo.linkedin}>Linkedin</a>
                     </h4>
                     <h4>
-                        Phone: <a href={"tel:" + this.props.contactInfo.phone}>{this.props.contactInfo.phone}</a>
+                        Phone: {this.props.login.loggedIn ?<a href={"tel:" + this.props.contactInfo.phone}>{this.props.contactInfo.phone}</a>: <Link to="/auth">Login to see</Link>}
                     </h4>
                     <form className="form-signin" onSubmit={this.props.handleSubmit(this.sendMessage.bind(this))}>
                         {/* U: <Field component="input" type="text" label="usr" name="usr" /> */}
